@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "env": {
+    "NEXT_PUBLIC_STRAPI_URL": "@strapi_url",
+    "NEXT_PUBLIC_SITE_URL": "@site_url"
+  }
+}
