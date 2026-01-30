@@ -48,9 +48,14 @@ COPY --from=builder /app/.next /app/.next
 COPY --from=builder /app/public /app/public
 COPY --from=builder /app/next.config.mjs /app/
 COPY --from=builder /app/next-i18next.config.js /app/
+COPY --from=builder /app/scripts /app/scripts
+
+# Copy startup script
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
 
 # Expose Next.js port
 EXPOSE 3000
 
-# Start Next.js in production mode
-CMD ["npm", "start"]
+# Start with sitemap generation
+CMD ["/app/start.sh"]
