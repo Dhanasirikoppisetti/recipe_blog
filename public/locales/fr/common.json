@@ -1,0 +1,23 @@
+{
+  "site_title": "Blog de Recettes",
+  "ingredients": "Ingrédients",
+  "instructions": "Instructions",
+  "featured_recipes": "Recettes vedettes",
+  "all_recipes": "Toutes les recettes",
+  "newsletter_title": "Abonnez-vous à notre newsletter",
+  "newsletter_subtitle": "Recevez les dernières recettes directement dans votre boîte mail",
+  "newsletter_placeholder": "Entrez votre adresse e-mail",
+  "newsletter_button": "S'abonner",
+  "newsletter_invalid_email": "Veuillez entrer un e-mail valide.",
+  "newsletter_success": "Merci pour votre inscription !",
+  "search_placeholder": "Rechercher des recettes...",
+  "ingredients_heading": "Ingrédients",
+  "instructions_heading": "Instructions",
+  "all_categories": "Toutes les catégories",
+  "recipe_not_found": "Recette introuvable",
+  "cuisine": "Cuisine",
+  "difficulty": "Difficulté",
+  "cook_time": "Temps de cuisson",
+  "minutes": "min",
+  "footer_rights": "Tous droits réservés."
+}

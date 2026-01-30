@@ -1,0 +1,23 @@
+{
+  "site_title": "Recipe Blog",
+  "ingredients": "Ingredients",
+  "instructions": "Instructions",
+  "featured_recipes": "Featured Recipes",
+  "all_recipes": "All Recipes",
+  "newsletter_title": "Subscribe to our newsletter",
+  "newsletter_subtitle": "Get the latest recipes delivered straight to your inbox",
+  "newsletter_placeholder": "Enter your email address",
+  "newsletter_button": "Subscribe",
+  "newsletter_invalid_email": "Please enter a valid email.",
+  "newsletter_success": "Thanks for subscribing!",
+  "search_placeholder": "Search recipes...",
+  "ingredients_heading": "Ingredients",
+  "instructions_heading": "Instructions",
+  "all_categories": "All categories",
+  "recipe_not_found": "Recipe not found",
+  "cuisine": "Cuisine",
+  "difficulty": "Difficulty",
+  "cook_time": "Cook Time",
+  "minutes": "min",
+  "footer_rights": "All rights reserved."
+}
