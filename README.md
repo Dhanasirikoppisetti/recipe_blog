@@ -92,18 +92,18 @@ This project demonstrates modern web development best practices for content-driv
 ### Local Development Setup
 
 1. **Clone the repository**
-   `ash
+   `Bash
    git clone <repository-url>
    cd recipe-blog
    `
 
 2. **Install dependencies**
-   `ash
+   `Bash
    npm install
    `
 
 3. **Configure environment variables**
-   `ash
+   `Bash
    cp .env.example .env.local
    `
    
@@ -115,7 +115,7 @@ This project demonstrates modern web development best practices for content-driv
    `
 
 4. **Start the development server**
-   `ash
+   `Bash
    npm run dev
    `
    
@@ -124,7 +124,7 @@ This project demonstrates modern web development best practices for content-driv
 ### Docker Setup
 
 1. **Build and start containers**
-   `ash
+   `Bash
    docker-compose up --build
    `
 
@@ -133,7 +133,7 @@ This project demonstrates modern web development best practices for content-driv
    - The application will be accessible after the health check passes
 
 3. **Stop containers**
-   `ash
+   `Bash
    docker-compose down
    `
 
@@ -169,7 +169,7 @@ This project expects the following Strapi content types:
 - description (Rich Text, Localized)
 - ingredients (Rich Text, Localized)
 - instructions (Rich Text, Localized)
-- eaturedImage (Media)
+- FeaturedImage (Media)
 - cusine (String) - Category/cuisine type
 - difficulty (String) - Easy, Medium, Hard
 - cookingTime (Number) - in minutes
@@ -221,7 +221,7 @@ Recipe detail pages include CSS media queries to hide non-essential elements whe
 
 ### Building the Project
 
-\\\ash
+\\\Bash
 npm run dev       # Development
 npm run build     # Production build
 npm start         # Production server
@@ -252,7 +252,7 @@ The application includes data-testid attributes for testing:
 
 ### Docker Deployment
 
-\\\ash
+\\\Bash
 docker-compose up --build -d
 \\\
 
