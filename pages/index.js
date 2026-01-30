@@ -28,6 +28,7 @@ export default function Home({ recipes = [], categories = [] }) {
   // Filter all recipes for search/category
   const filtered = useMemo(() => {
     return recipes.filter((r) => {
+      if (r.isFeatured) return false;
       const matchText = r.title
         .toLowerCase()
         .includes(search.toLowerCase());
