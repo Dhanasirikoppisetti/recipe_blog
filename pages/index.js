@@ -1,15 +1,22 @@
 // pages/index.js
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getAllRecipes, getStrapiMedia } from "../lib/recipes";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 
 export default function Home({ recipes = [], categories = [] }) {
   const { t } = useTranslation("common");
+  const { locale } = useRouter();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    setSearch("");
+    setCategory("");
+  }, [locale]);
 
   // Get featured recipes
   const featuredRecipes = useMemo(() => {
@@ -86,7 +93,7 @@ export default function Home({ recipes = [], categories = [] }) {
         {t("all_recipes")}
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
+      <div className="flex flex-col md:flex-row gap-4 mb-6 no-print">
         <input
           data-testid="search-input"
           className="border rounded px-3 py-2 flex-1"
