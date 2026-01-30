@@ -96,6 +96,7 @@ This project demonstrates modern web development best practices for content-driv
    git clone <repository-url>
    cd recipe-blog
    `
+   ## ⚡ For Evaluators - Start Here
 
 2. **Install dependencies**
    `Bash
@@ -105,7 +106,6 @@ This project demonstrates modern web development best practices for content-driv
 3. **Configure environment variables**
    `Bash
    cp .env.example .env.local
-   `
    
    Edit .env.local with your Strapi configuration:
    `env
