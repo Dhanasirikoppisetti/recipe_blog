@@ -12,10 +12,12 @@ export default function Home({ recipes = [], categories = [] }) {
   const { locale } = useRouter();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+  const [key, setKey] = useState(0);
 
   useEffect(() => {
     setSearch("");
     setCategory("");
+    setKey(prev => prev + 1);
   }, [locale]);
 
   // Get featured recipes
@@ -46,6 +48,7 @@ export default function Home({ recipes = [], categories = [] }) {
           <div 
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
             data-testid="featured-recipes"
+            key={`featured-${key}`}
           >
             {featuredRecipes.map((r) => {
               const mediumUrl =
@@ -117,7 +120,7 @@ export default function Home({ recipes = [], categories = [] }) {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6" key={`filtered-${key}`}>
         {filtered.map((r) => {
           const mediumUrl =
             r.featuredImage?.formats?.medium?.url ||
