@@ -97,23 +97,32 @@ export default function Home({ recipes = [], categories = [] }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
-  const recipes = await getAllRecipes(locale);
+export async function getServerSideProps({ locale }) {
+  try {
+    const recipes = await getAllRecipes(locale);
 
-  const categories = Array.from(
-    new Set(
-      recipes
-        .map((r) => r.cusine)
-        .filter((c) => c && c.trim().length > 0)
-    )
-  ).sort((a, b) => a.localeCompare(b));
+    const categories = Array.from(
+      new Set(
+        recipes
+          .map((r) => r.cusine)
+          .filter((c) => c && c.trim().length > 0)
+      )
+    ).sort((a, b) => a.localeCompare(b));
 
-  return {
-    props: {
-      recipes,
-      categories,
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-    revalidate: 60,
-  };
+    return {
+      props: {
+        recipes,
+        categories,
+        ...(await serverSideTranslations(locale, ["common"])),
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        recipes: [],
+        categories: [],
+        ...(await serverSideTranslations(locale, ["common"])),
+      },
+    };
+  }
 }
