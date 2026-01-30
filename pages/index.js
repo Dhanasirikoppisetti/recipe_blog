@@ -25,10 +25,14 @@ export default function Home({ recipes = [], categories = [] }) {
     return recipes.filter((r) => r.isFeatured);
   }, [recipes]);
 
+  const featuredIds = useMemo(() => {
+    return new Set(featuredRecipes.map((r) => r.id));
+  }, [featuredRecipes]);
+
   // Filter all recipes for search/category
   const filtered = useMemo(() => {
     return recipes.filter((r) => {
-      if (r.isFeatured) return false;
+      if (featuredIds.has(r.id)) return false;
       const matchText = r.title
         .toLowerCase()
         .includes(search.toLowerCase());
@@ -36,7 +40,7 @@ export default function Home({ recipes = [], categories = [] }) {
         !category || r.cusine.toLowerCase() === category.toLowerCase();
       return matchText && matchCategory;
     });
-  }, [recipes, search, category]);
+  }, [recipes, search, category, featuredIds]);
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-10">
