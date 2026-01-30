@@ -39,6 +39,29 @@ export default function Home({ recipes = [], categories = [] }) {
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-10">
+      <div className="flex flex-col md:flex-row gap-4 mb-10 no-print">
+        <input
+          data-testid="search-input"
+          className="border rounded px-3 py-2 flex-1"
+          placeholder={t("search_placeholder")}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        <select
+          data-testid="category-filter"
+          className="border rounded px-3 py-2 md:w-56"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="">{t("all_categories")}</option>
+          {categories.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
+        </select>
+      </div>
       {/* Featured Recipes Section */}
       {featuredRecipes.length > 0 && (
         <section className="mb-14">
@@ -95,30 +118,6 @@ export default function Home({ recipes = [], categories = [] }) {
       <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8">
         {t("all_recipes")}
       </h1>
-
-      <div className="flex flex-col md:flex-row gap-4 mb-6 no-print">
-        <input
-          data-testid="search-input"
-          className="border rounded px-3 py-2 flex-1"
-          placeholder={t("search_placeholder")}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-
-        <select
-          data-testid="category-filter"
-          className="border rounded px-3 py-2 md:w-56"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="">{t("all_categories")}</option>
-          {categories.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
-      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6" key={`filtered-${key}`}>
         {filtered.map((r) => {
